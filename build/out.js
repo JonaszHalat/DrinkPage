@@ -93,6 +93,8 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _coctailList = __webpack_require__(/*! ./coctailList.jsx */ "./js/coctailList.jsx");
 
+var _finalCoctail = __webpack_require__(/*! ./finalCoctail.jsx */ "./js/finalCoctail.jsx");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -120,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
         zmiennaState: [],
         drinksFromData: null
       }, _this.handleClick = function (event) {
-        var choosenIng = event.target.innerText;
+        var choosenIng = event.currentTarget.innerText;
         // console.log(event.target.innerText);
         fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + choosenIng).then(function (resp) {
           if (resp.ok) {
@@ -227,6 +229,8 @@ var _reactDom = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/i
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
+var _finalCoctail = __webpack_require__(/*! ./finalCoctail.jsx */ "./js/finalCoctail.jsx");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -249,9 +253,11 @@ var CoctailList = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = CoctailList.__proto__ || Object.getPrototypeOf(CoctailList)).call.apply(_ref, [this].concat(args))), _this), _this.handleClickDrinkRecipe = function (event) {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = CoctailList.__proto__ || Object.getPrototypeOf(CoctailList)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      finalCoctail: null
+    }, _this.handleClickDrinkRecipe = function (event) {
       var drinkRecipeId = event.currentTarget.dataset.id;
-      console.log(drinkRecipeId);
+      // console.log(drinkRecipeId);
       // console.log(event.target.innerText);
       fetch("https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinkRecipeId).then(function (resp) {
         if (resp.ok) {
@@ -261,6 +267,9 @@ var CoctailList = function (_React$Component) {
         }
       }).then(function (data) {
         console.log(data);
+        _this.setState({
+          finalCoctail: data
+        });
       }).catch(function (err) {
         return console.log(err, "error!");
       });
@@ -275,7 +284,7 @@ var CoctailList = function (_React$Component) {
       if (this.props.drinksFromData === null) {
         return null;
       }
-      console.log(this.props.drinksFromData);
+      // console.log(this.props.drinksFromData);
       var drinksList = this.props.drinksFromData.drinks.map(function (el) {
         //   return console.log(el.strDrink);
         return _react2.default.createElement(
@@ -292,7 +301,12 @@ var CoctailList = function (_React$Component) {
       return _react2.default.createElement(
         "div",
         null,
-        drinksList
+        _react2.default.createElement(_finalCoctail.FinalCoctail, { finalDrink: this.state.finalCoctail }),
+        _react2.default.createElement(
+          "div",
+          null,
+          drinksList
+        )
       );
     }
   }]);
@@ -301,6 +315,128 @@ var CoctailList = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.CoctailList = CoctailList;
+
+/***/ }),
+
+/***/ "./js/finalCoctail.jsx":
+/*!*****************************!*\
+  !*** ./js/finalCoctail.jsx ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.FinalCoctail = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/react.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _coctailList = __webpack_require__(/*! ./coctailList.jsx */ "./js/coctailList.jsx");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var FinalCoctail = function (_React$Component) {
+    _inherits(FinalCoctail, _React$Component);
+
+    function FinalCoctail() {
+        _classCallCheck(this, FinalCoctail);
+
+        return _possibleConstructorReturn(this, (FinalCoctail.__proto__ || Object.getPrototypeOf(FinalCoctail)).apply(this, arguments));
+    }
+
+    _createClass(FinalCoctail, [{
+        key: "render",
+        value: function render() {
+            if (this.props.finalDrink === null) {
+                return null;
+            }
+            console.log('finalcoctail' + this.props.finalDrink);
+
+            var finalDrinkBlock = this.props.finalDrink.drinks.map(function (el, i) {
+                var indArr = [];
+                for (var _i = 1; _i < 16; _i++) {
+                    var name = "strIngredient" + _i;
+                    if (el[name]) {
+                        indArr.push(el[name]);
+                    }
+                }
+                console.log(indArr);
+                return _react2.default.createElement(
+                    "div",
+                    null,
+                    _react2.default.createElement(
+                        "h1",
+                        null,
+                        "Our Final Drink"
+                    ),
+                    _react2.default.createElement(
+                        "p",
+                        null,
+                        "Indigiends: "
+                    ),
+                    _react2.default.createElement("img", { src: el.strDrinkThumb }),
+                    _react2.default.createElement(
+                        "p",
+                        null,
+                        "Drink Name: ",
+                        el.strDrink
+                    ),
+                    _react2.default.createElement(
+                        "p",
+                        null,
+                        "Drink Category: ",
+                        el.strAlcoholic
+                    ),
+                    _react2.default.createElement(
+                        "p",
+                        null,
+                        "best Glass: ",
+                        el.strGlass
+                    ),
+                    _react2.default.createElement(
+                        "p",
+                        null,
+                        "Instructions: ",
+                        el.strInstructions
+                    )
+                );
+            });
+
+            return _react2.default.createElement(
+                "div",
+                null,
+                "FINAL COCTAIL",
+                _react2.default.createElement(
+                    "div",
+                    null,
+                    finalDrinkBlock
+                )
+            );
+        }
+    }]);
+
+    return FinalCoctail;
+}(_react2.default.Component);
+
+exports.FinalCoctail = FinalCoctail;
 
 /***/ }),
 

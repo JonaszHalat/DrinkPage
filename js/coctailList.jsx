@@ -1,10 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { FinalCoctail } from "./finalCoctail.jsx";
 
 class CoctailList extends React.Component {
+  state = {
+    finalCoctail: null
+  }
+
   handleClickDrinkRecipe = event => {
     let drinkRecipeId = event.currentTarget.dataset.id;
-    console.log(drinkRecipeId);
+    // console.log(drinkRecipeId);
     // console.log(event.target.innerText);
     fetch(
       `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkRecipeId}`
@@ -18,6 +23,9 @@ class CoctailList extends React.Component {
       })
       .then(data => {
         console.log(data);
+        this.setState({
+          finalCoctail: data
+        })
       })
       .catch(err => console.log(err, "error!"));
   };
@@ -26,7 +34,7 @@ class CoctailList extends React.Component {
     if (this.props.drinksFromData === null) {
       return null;
     }
-    console.log(this.props.drinksFromData);
+    // console.log(this.props.drinksFromData);
     let drinksList = this.props.drinksFromData.drinks.map(el => {
       //   return console.log(el.strDrink);
       return (
@@ -36,7 +44,12 @@ class CoctailList extends React.Component {
         </div>
       );
     });
-    return <div>{drinksList}</div>;
+    return (
+      <div>
+        <FinalCoctail finalDrink={this.state.finalCoctail} />
+        <div>{drinksList}</div>
+      </div>
+    )
   }
 }
 

@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { CoctailList } from "./coctailList.jsx";
+import { FinalCoctail } from "./finalCoctail.jsx";
 
 document.addEventListener("DOMContentLoaded", function() {
   class App extends React.Component {
@@ -23,13 +24,14 @@ document.addEventListener("DOMContentLoaded", function() {
           <div>{ingList}</div>
           <div>
             <CoctailList drinksFromData={this.state.drinksFromData} />
+           
           </div>
         </div>
       );
     }
 
     handleClick = event => {
-      let choosenIng = event.target.innerText;
+      let choosenIng = event.currentTarget.innerText;
       // console.log(event.target.innerText);
       fetch(
         `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${choosenIng}`
