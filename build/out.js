@@ -91,6 +91,8 @@ var _reactDom = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/i
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
+var _coctailList = __webpack_require__(/*! ./coctailList.jsx */ "./js/coctailList.jsx");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -99,94 +101,206 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-document.addEventListener('DOMContentLoaded', function () {
-    var App = function (_React$Component) {
-        _inherits(App, _React$Component);
+document.addEventListener("DOMContentLoaded", function () {
+  var App = function (_React$Component) {
+    _inherits(App, _React$Component);
 
-        function App() {
-            var _ref;
+    function App() {
+      var _ref;
 
-            var _temp, _this, _ret;
+      var _temp, _this, _ret;
 
-            _classCallCheck(this, App);
+      _classCallCheck(this, App);
 
-            for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-                args[_key] = arguments[_key];
-            }
+      for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
 
-            return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = App.__proto__ || Object.getPrototypeOf(App)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-                zmiennaState: []
-            }, _this.handleClick = function (event) {
-                var choosenIng = event.target.innerText;
-                // console.log(event.target.innerText);
-                fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + choosenIng).then(function (resp) {
-                    if (resp.ok) {
-                        return resp.json();
-                        console.log('text');
-                    } else {
-                        throw new Error('Błąd sieci!');
-                    }
-                }).then(function (drinksFromData) {
-                    console.log(drinksFromData);
-                }).catch(function (err) {
-                    return console.log(err, 'error!');
-                });
-            }, _temp), _possibleConstructorReturn(_this, _ret);
-        }
+      return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = App.__proto__ || Object.getPrototypeOf(App)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+        zmiennaState: [],
+        drinksFromData: null
+      }, _this.handleClick = function (event) {
+        var choosenIng = event.target.innerText;
+        // console.log(event.target.innerText);
+        fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + choosenIng).then(function (resp) {
+          if (resp.ok) {
+            return resp.json();
+          } else {
+            throw new Error("Błąd sieci!");
+          }
+        }).then(function (drinksFromData) {
+          _this.setState({
+            drinksFromData: drinksFromData
+          });
+        }).catch(function (err) {
+          return console.log(err, "error!");
+        });
+      }, _temp), _possibleConstructorReturn(_this, _ret);
+    }
 
-        _createClass(App, [{
-            key: 'render',
-            value: function render() {
-                var _this2 = this;
+    _createClass(App, [{
+      key: "render",
+      value: function render() {
+        var _this2 = this;
 
-                var ingList = this.state.zmiennaState.map(function (el, i) {
-                    return _react2.default.createElement(
-                        'li',
-                        { key: i, onClick: _this2.handleClick },
-                        el.strIngredient1
-                    );
-                });
+        var ingList = this.state.zmiennaState.map(function (el, i) {
+          return _react2.default.createElement(
+            "li",
+            { key: i, onClick: _this2.handleClick },
+            el.strIngredient1
+          );
+        });
 
-                // console.log(this.state.zmiennaState);
-                return _react2.default.createElement(
-                    'div',
-                    null,
-                    ingList
-                );
-            }
-        }, {
-            key: 'componentDidMount',
-            value: function componentDidMount() {
-                var _this3 = this;
+        // console.log(this.state.zmiennaState);
+        return _react2.default.createElement(
+          "div",
+          null,
+          _react2.default.createElement(
+            "div",
+            null,
+            ingList
+          ),
+          _react2.default.createElement(
+            "div",
+            null,
+            _react2.default.createElement(_coctailList.CoctailList, { drinksFromData: this.state.drinksFromData })
+          )
+        );
+      }
+    }, {
+      key: "componentDidMount",
+      value: function componentDidMount() {
+        var _this3 = this;
 
-                fetch('https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list').then(function (resp) {
-                    if (resp.ok) {
-                        return resp.json();
-                        console.log('text');
-                    } else {
-                        throw new Error('Błąd sieci!');
-                    }
-                }).then(function (data) {
-                    _this3.setState({
-                        zmiennaState: data.drinks
-                    });
-                    // console.log(data);
-                    // console.log(data.drinks);
-                }).catch(function (err) {
-                    return console.log(err, 'error!');
-                });
-            }
-        }]);
+        fetch("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list").then(function (resp) {
+          if (resp.ok) {
+            return resp.json();
+          } else {
+            throw new Error("Błąd sieci!");
+          }
+        }).then(function (data) {
+          _this3.setState({
+            zmiennaState: data.drinks
+          });
+          // console.log(data);
+          // console.log(data.drinks);
+        }).catch(function (err) {
+          return console.log(err, "error!");
+        });
+      }
+    }]);
 
-        return App;
-    }(_react2.default.Component);
+    return App;
+  }(_react2.default.Component);
 
-    _reactDom2.default.render(_react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(App, null)
-    ), document.getElementById('app'));
+  _reactDom2.default.render(_react2.default.createElement(
+    "div",
+    null,
+    _react2.default.createElement(App, null)
+  ), document.getElementById("app"));
 });
+
+/***/ }),
+
+/***/ "./js/coctailList.jsx":
+/*!****************************!*\
+  !*** ./js/coctailList.jsx ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.CoctailList = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/react.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CoctailList = function (_React$Component) {
+  _inherits(CoctailList, _React$Component);
+
+  function CoctailList() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, CoctailList);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = CoctailList.__proto__ || Object.getPrototypeOf(CoctailList)).call.apply(_ref, [this].concat(args))), _this), _this.handleClickDrinkRecipe = function (event) {
+      var drinkRecipeId = event.currentTarget.dataset.id;
+      console.log(drinkRecipeId);
+      // console.log(event.target.innerText);
+      fetch("https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinkRecipeId).then(function (resp) {
+        if (resp.ok) {
+          return resp.json();
+        } else {
+          throw new Error("Błąd sieci!");
+        }
+      }).then(function (data) {
+        console.log(data);
+      }).catch(function (err) {
+        return console.log(err, "error!");
+      });
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(CoctailList, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      if (this.props.drinksFromData === null) {
+        return null;
+      }
+      console.log(this.props.drinksFromData);
+      var drinksList = this.props.drinksFromData.drinks.map(function (el) {
+        //   return console.log(el.strDrink);
+        return _react2.default.createElement(
+          "div",
+          { "data-id": el.idDrink, onClick: _this2.handleClickDrinkRecipe },
+          _react2.default.createElement(
+            "h2",
+            null,
+            el.strDrink
+          ),
+          _react2.default.createElement("img", { src: el.strDrinkThumb })
+        );
+      });
+      return _react2.default.createElement(
+        "div",
+        null,
+        drinksList
+      );
+    }
+  }]);
+
+  return CoctailList;
+}(_react2.default.Component);
+
+exports.CoctailList = CoctailList;
 
 /***/ }),
 
