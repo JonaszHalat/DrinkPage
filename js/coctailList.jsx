@@ -39,13 +39,17 @@ class CoctailList extends React.Component {
       //   return console.log(el.strDrink);
       return (
         <div
-          style={{ width: "100px", height: "100px" }}
+          style={{ width: "100px", height: "100px", 
+          backgroundImage: `url(${el.strDrinkThumb})`, 
+          backgroundSize: "contain",
+          textAlign: "auto"}}
           className="floatLeft imageMargin"
           data-id={el.idDrink}
           onClick={this.handleClickDrinkRecipe}
+
         >
-          <p>{el.strDrink}</p>
-          <img className="width" src={el.strDrinkThumb} />
+          <p >{el.strDrink}</p>
+          {/* <img className="width" src={el.strDrinkThumb} /> */}
         </div>
       );
     });
