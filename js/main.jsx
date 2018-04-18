@@ -4,6 +4,7 @@ import { CoctailList } from "./coctailList.jsx";
 import { FinalCoctail } from "./finalCoctail.jsx";
 import { App } from "./app.jsx";
 import { HashRouter, Route, Link, Switch, NavLink } from "react-router-dom";
+import { RandomComp } from "./randomComp.jsx";
 
 document.addEventListener("DOMContentLoaded", function() {
   console.log("dom");
@@ -20,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   class RandomDrinkComponent extends React.Component {
     render() {
-      return <h1>Losowy Drink</h1>;
+      return <RandomComp />;
     }
   }
 
@@ -38,16 +39,16 @@ document.addEventListener("DOMContentLoaded", function() {
     render() {
       return (
         <div>
-          <h1>Aplikacja React z React Router</h1>
+          <h1>Make me a drink!</h1>
           <ul>
             <li>
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/oneingridientdrink">Lista drinków</Link>
+              <Link to="/oneingridientdrink">Lista składników</Link>
             </li>
             <li>
-              <Link to="/randomdrin">Losowy Drink</Link>
+              <Link to="/randomdrink">Losowy Drink</Link>
             </li>
           </ul>
         </div>
@@ -67,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 path="/oneingridientdrink"
                 component={OneIngreadientDrinks}
               />
-              <Route path="/randomdrin" component={RandomDrinkComponent} />
+              <Route path="/randomdrink" component={RandomDrinkComponent} />
               <Route component={NotFound} />
             </Switch>
           </div>
