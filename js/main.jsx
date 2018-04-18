@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
       return (
         <div>
           <h1>Make me a drink!</h1>
-          <ul>
+          <ul className="navList">
             <li>
               <Link to="/">Home</Link>
             </li>

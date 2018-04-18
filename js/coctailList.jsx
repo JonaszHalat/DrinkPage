@@ -5,7 +5,7 @@ import { FinalCoctail } from "./finalCoctail.jsx";
 class CoctailList extends React.Component {
   state = {
     finalCoctail: null
-  }
+  };
 
   handleClickDrinkRecipe = event => {
     let drinkRecipeId = event.currentTarget.dataset.id;
@@ -25,7 +25,7 @@ class CoctailList extends React.Component {
         console.log(data);
         this.setState({
           finalCoctail: data
-        })
+        });
       })
       .catch(err => console.log(err, "error!"));
   };
@@ -38,7 +38,11 @@ class CoctailList extends React.Component {
     let drinksList = this.props.drinksFromData.drinks.map(el => {
       //   return console.log(el.strDrink);
       return (
-        <div data-id={el.idDrink} onClick={this.handleClickDrinkRecipe}>
+        <div
+          style={{ width: "100px", height: "100px" }}
+          data-id={el.idDrink}
+          onClick={this.handleClickDrinkRecipe}
+        >
           <h2>{el.strDrink}</h2>
           <img src={el.strDrinkThumb} />
         </div>
@@ -49,7 +53,7 @@ class CoctailList extends React.Component {
         <FinalCoctail finalDrink={this.state.finalCoctail} />
         <div>{drinksList}</div>
       </div>
-    )
+    );
   }
 }
 
