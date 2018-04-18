@@ -40,11 +40,12 @@ class CoctailList extends React.Component {
       return (
         <div
           style={{ width: "100px", height: "100px" }}
+          className="floatLeft imageMargin"
           data-id={el.idDrink}
           onClick={this.handleClickDrinkRecipe}
         >
-          <h2>{el.strDrink}</h2>
-          <img src={el.strDrinkThumb} />
+          <p>{el.strDrink}</p>
+          <img className="width" src={el.strDrinkThumb} />
         </div>
       );
     });

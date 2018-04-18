@@ -42,3 +42,12 @@
   clear: both;
   display: block;
 }
+.width {
+  width: 100%;
+}
+.floatLeft {
+  float: left;
+}
+.imageMargin {
+  margin: 10px;
+}

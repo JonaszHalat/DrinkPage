@@ -19,8 +19,8 @@ class App extends React.Component {
 
     // console.log(this.state.zmiennaState);
     return (
-      <div className="alcoList">
-        <div>
+      <div>
+        <div className="alcoList">
           <ul>{ingList}</ul>
         </div>
         <div>
