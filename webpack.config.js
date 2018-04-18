@@ -2,15 +2,15 @@ var path = require("path");
 var Html = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./js/app.jsx",
+  entry: "./js/main.jsx",
   output: {
     filename: "out.js",
     path: path.resolve(__dirname, "build")
   },
   devServer: {
     inline: true,
-    contentBase: "./",
-    port: 3001
+
+    port: 3005
   },
   mode: "development",
   watch: true,

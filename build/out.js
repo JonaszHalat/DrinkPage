@@ -81,6 +81,11 @@
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.App = undefined;
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(/*! react */ "./node_modules/react/react.js");
@@ -194,13 +199,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     return App;
   }(_react2.default.Component);
-
-  _reactDom2.default.render(_react2.default.createElement(
-    "div",
-    null,
-    _react2.default.createElement(App, null)
-  ), document.getElementById("app"));
 });
+exports.App = App;
 
 /***/ }),
 
