@@ -329,7 +329,7 @@ exports.CoctailList = CoctailList;
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.FinalCoctail = undefined;
 
@@ -354,86 +354,114 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var FinalCoctail = function (_React$Component) {
-    _inherits(FinalCoctail, _React$Component);
+  _inherits(FinalCoctail, _React$Component);
 
-    function FinalCoctail() {
-        _classCallCheck(this, FinalCoctail);
+  function FinalCoctail() {
+    _classCallCheck(this, FinalCoctail);
 
-        return _possibleConstructorReturn(this, (FinalCoctail.__proto__ || Object.getPrototypeOf(FinalCoctail)).apply(this, arguments));
-    }
+    return _possibleConstructorReturn(this, (FinalCoctail.__proto__ || Object.getPrototypeOf(FinalCoctail)).apply(this, arguments));
+  }
 
-    _createClass(FinalCoctail, [{
-        key: "render",
-        value: function render() {
-            if (this.props.finalDrink === null) {
-                return null;
-            }
-            console.log('finalcoctail' + this.props.finalDrink);
+  _createClass(FinalCoctail, [{
+    key: "render",
+    value: function render() {
+      if (this.props.finalDrink === null) {
+        return null;
+      }
+      console.log("finalcoctail" + this.props.finalDrink);
 
-            var finalDrinkBlock = this.props.finalDrink.drinks.map(function (el, i) {
-                var indArr = [];
-                for (var _i = 1; _i < 16; _i++) {
-                    var name = "strIngredient" + _i;
-                    if (el[name]) {
-                        indArr.push(el[name]);
-                    }
-                }
-                console.log(indArr);
-                return _react2.default.createElement(
-                    "div",
-                    null,
-                    _react2.default.createElement(
-                        "h1",
-                        null,
-                        "Our Final Drink"
-                    ),
-                    _react2.default.createElement(
-                        "p",
-                        null,
-                        "Indigiends: "
-                    ),
-                    _react2.default.createElement("img", { src: el.strDrinkThumb }),
-                    _react2.default.createElement(
-                        "p",
-                        null,
-                        "Drink Name: ",
-                        el.strDrink
-                    ),
-                    _react2.default.createElement(
-                        "p",
-                        null,
-                        "Drink Category: ",
-                        el.strAlcoholic
-                    ),
-                    _react2.default.createElement(
-                        "p",
-                        null,
-                        "best Glass: ",
-                        el.strGlass
-                    ),
-                    _react2.default.createElement(
-                        "p",
-                        null,
-                        "Instructions: ",
-                        el.strInstructions
-                    )
-                );
-            });
-
-            return _react2.default.createElement(
-                "div",
-                null,
-                "FINAL COCTAIL",
-                _react2.default.createElement(
-                    "div",
-                    null,
-                    finalDrinkBlock
-                )
-            );
+      var finalDrinkBlock = this.props.finalDrink.drinks.map(function (el, i) {
+        var indArr = [];
+        for (var _i = 1; _i < 16; _i++) {
+          var name = "strIngredient" + _i;
+          if (el[name]) {
+            indArr.push(el[name]);
+          }
         }
-    }]);
+        var quantArr = [];
+        for (var _i2 = 1; _i2 < 16; _i2++) {
+          var nameQua = "strMeasure" + _i2;
+          if (el[nameQua]) {
+            quantArr.push(el[nameQua]);
+          }
+        }
+        console.log(quantArr);
+        console.log(indArr);
+        var indAndQuan = [];
 
-    return FinalCoctail;
+        for (var _i3 = 0; _i3 < quantArr.length; _i3++) {
+          var str = quantArr[_i3].trim();
+          if (str !== "" && str !== " " && str !== null) {
+            indAndQuan.push(_react2.default.createElement(
+              "li",
+              null,
+              indArr[_i3],
+              ", ",
+              quantArr[_i3]
+            ));
+          }
+        }
+        return _react2.default.createElement(
+          "div",
+          null,
+          _react2.default.createElement(
+            "h1",
+            null,
+            "Our Final Drink"
+          ),
+          _react2.default.createElement(
+            "p",
+            null,
+            "Indigiends: ",
+            _react2.default.createElement(
+              "ul",
+              null,
+              indAndQuan
+            ),
+            " "
+          ),
+          _react2.default.createElement("img", { src: el.strDrinkThumb }),
+          _react2.default.createElement(
+            "p",
+            null,
+            "Drink Name: ",
+            el.strDrink
+          ),
+          _react2.default.createElement(
+            "p",
+            null,
+            "Drink Category: ",
+            el.strAlcoholic
+          ),
+          _react2.default.createElement(
+            "p",
+            null,
+            "best Glass: ",
+            el.strGlass
+          ),
+          _react2.default.createElement(
+            "p",
+            null,
+            "Instructions: ",
+            el.strInstructions
+          )
+        );
+      });
+
+      return _react2.default.createElement(
+        "div",
+        null,
+        "FINAL COCTAIL",
+        _react2.default.createElement(
+          "div",
+          null,
+          finalDrinkBlock
+        )
+      );
+    }
+  }]);
+
+  return FinalCoctail;
 }(_react2.default.Component);
 
 exports.FinalCoctail = FinalCoctail;
