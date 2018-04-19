@@ -293,19 +293,34 @@ var CoctailList = function (_React$Component) {
         return _react2.default.createElement(
           "div",
           {
-            style: { width: "100px", height: "100px",
+            style: {
+              width: "100px", height: "100px",
               backgroundImage: "url(" + el.strDrinkThumb + ")",
               backgroundSize: "contain",
-              textAlign: "auto" },
+              display: "flex",
+              justifyContent: "center",
+              flexDirection: "column"
+
+            },
             className: "floatLeft imageMargin",
             "data-id": el.idDrink,
             onClick: _this2.handleClickDrinkRecipe
-
           },
           _react2.default.createElement(
             "p",
-            null,
-            el.strDrink
+            { style: {
+                padding: "0",
+                margin: "0",
+                display: "flex",
+                width: "auto",
+                justifyContent: "center"
+                // alignItems: "center",
+              } },
+            _react2.default.createElement(
+              "span",
+              { className: "spanCoctailList", style: { textAlign: "center" } },
+              el.strDrink
+            )
           )
         );
       });
