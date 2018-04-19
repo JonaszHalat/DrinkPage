@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
   class Navigation extends React.Component {
     render() {
       return (
-        <div style={{ position: "fixed", width: "100%" }}>
+        <div style={{ position: "fixed", width: "100%", height: "86px" }}>
           <h1
             className="fontRighteous"
             style={{

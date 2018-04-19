@@ -34,6 +34,9 @@
   background-size: cover;
   padding-top: 100px;
   font-family: "Work Sans", sans-serif;
+  width: 30%;
+  height: 90vh;
+  overflow: scroll;
 }
 .alcoList ul li {
   float: left;
@@ -76,10 +79,11 @@
 }
 .classFinaleDrink {
   display: inline-block;
-  width: 48%;
+  width: 150px;
   min-height: 300px;
   padding-left: 30px;
 }
+
 .drinkImage {
   background-image: url("../images/drinking.jpg");
   background-size: cover;
@@ -124,4 +128,8 @@
 }
 .fontAlegreya {
   font-family: "Alegreya Sans", sans-serif;
+}
+.drinkList {
+  background-image: url("../images/piwo.jpg");
+  background-size: contain;
 }

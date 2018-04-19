@@ -3,10 +3,6 @@ import ReactDOM from "react-dom";
 import { FinalCoctail } from "./finalCoctail.jsx";
 
 class CoctailList extends React.Component {
-  state = {
-    finalCoctail: null
-  };
-
   handleClickDrinkRecipe = event => {
     let drinkRecipeId = event.currentTarget.dataset.id;
     // console.log(drinkRecipeId);
@@ -23,10 +19,9 @@ class CoctailList extends React.Component {
       })
       .then(data => {
         console.log(data);
-        this.setState({
-          finalCoctail: data
-        });
+        this.props.setFinaleDrink(data);
       })
+
       .catch(err => console.log(err, "error!"));
   };
 
@@ -39,6 +34,7 @@ class CoctailList extends React.Component {
       //   return console.log(el.strDrink);
       return (
         <div
+          key={el.idDrink}
           style={{
             width: "100px",
             height: "100px",
@@ -72,7 +68,7 @@ class CoctailList extends React.Component {
     });
     return (
       <div>
-        <FinalCoctail finalDrink={this.state.finalCoctail} />
+        <FinalCoctail finalDrink={this.props.finaleDrink} />
         <div>{drinksList}</div>
       </div>
     );

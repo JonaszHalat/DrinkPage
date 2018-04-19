@@ -32,7 +32,7 @@ class FinalCoctail extends React.Component {
         const str = quantArr[i].trim();
         if (str !== "" && str !== " " && str !== null) {
           indAndQuan.push(
-            <li>
+            <li key={i}>
               {indArr[i]}, {quantArr[i]}
             </li>
           );
@@ -40,28 +40,30 @@ class FinalCoctail extends React.Component {
       }
       return (
         <div
+          key={i}
           style={{
             display: "flex",
             justifyContent: "space-between",
             backgroundColor: "black",
-            padding: "30px"
+            padding: "30px",
+            width: "100%"
           }}
         >
           <div
             className="classFinaleDrink  drinkImage colorWhite fontAlegreya"
-            style={{ padding: "30px", minHeight: "300px" }}
+            style={{ padding: "30px", minHeight: "300px", width: "80vw" }}
           >
             <p>
               Drink Name: {el.strDrink} <br />
               Drink Category: {el.strAlcoholic}
             </p>
             <h4>Drink recipe:</h4> <br />
-            <p>
+            <div>
               Ingredients: <ul style={{ listStyle: "none" }}>{indAndQuan}</ul>{" "}
               <br />
               Best Glass: {el.strGlass} <br />
               Instructions: {el.strInstructions}
-            </p>
+            </div>
           </div>
           <div className="classFinaleDrink">
             <img
