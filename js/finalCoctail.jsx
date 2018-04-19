@@ -49,7 +49,7 @@ class FinalCoctail extends React.Component {
         >
           <div
             className="classFinaleDrink  drinkImage colorWhite fontAlegreya"
-            style={{ padding: "30px" }}
+            style={{ padding: "30px", minHeight: "300px" }}
           >
             <p>
               Drink Name: {el.strDrink} <br />
@@ -65,7 +65,7 @@ class FinalCoctail extends React.Component {
           </div>
           <div className="classFinaleDrink">
             <img
-              style={{ height: "100%", paddingLeft: "30px" }}
+              style={{ height: "300px", paddingLeft: "30px" }}
               src={el.strDrinkThumb}
             />
           </div>

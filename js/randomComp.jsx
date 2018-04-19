@@ -84,7 +84,11 @@ class RandomComp extends React.Component {
             </div>
             <div className="classFinaleDrink">
               <img
-                style={{ height: "100%", padding: "20px", borderRadius: "10%" }}
+                style={{
+                  height: "300px",
+                  padding: "20px",
+                  borderRadius: "10%"
+                }}
                 src={el.strDrinkThumb}
               />
             </div>
