@@ -163,7 +163,7 @@ var App = function (_React$Component) {
         null,
         _react2.default.createElement(
           "div",
-          { className: "alcoList" },
+          { style: { marginBottom: "20px" }, className: "alcoList" },
           _react2.default.createElement(
             "ul",
             null,
@@ -189,8 +189,15 @@ var App = function (_React$Component) {
           throw new Error("Błąd sieci!");
         }
       }).then(function (data) {
+        data.drinks.sort(function (a, b) {
+          a.strIngredient1.localeCompare(b.strIngredient1);
+        });
+
+        console.log(data.drinks);
         _this3.setState({
-          zmiennaState: data.drinks
+          zmiennaState: data.drinks.sort(function (a, b) {
+            return a.strIngredient1.localeCompare(b.strIngredient1);
+          })
         });
         // console.log(data);
         // console.log(data.drinks);
@@ -429,45 +436,53 @@ var FinalCoctail = function (_React$Component) {
         }
         return _react2.default.createElement(
           "div",
-          null,
+          { style: { marginBottom: "30px" } },
           _react2.default.createElement(
-            "h4",
-            null,
-            "Drink recipe:"
-          ),
-          _react2.default.createElement(
-            "p",
-            null,
-            "Ingredients: ",
+            "div",
+            { className: "classFinaleDrink" },
             _react2.default.createElement(
-              "ul",
+              "p",
               null,
-              indAndQuan
+              "Drink Name: ",
+              el.strDrink,
+              " ",
+              _react2.default.createElement("br", null),
+              "Drink Category: ",
+              el.strAlcoholic,
+              " ",
+              _react2.default.createElement("br", null),
+              " ",
+              _react2.default.createElement("br", null)
+            ),
+            _react2.default.createElement(
+              "h4",
+              null,
+              "Drink recipe:"
+            ),
+            _react2.default.createElement(
+              "p",
+              null,
+              "Ingredients: ",
+              indAndQuan,
+              " ",
+              _react2.default.createElement("br", null),
+              "Best Glass: ",
+              el.strGlass,
+              " ",
+              _react2.default.createElement("br", null),
+              "Instructions: ",
+              el.strInstructions,
+              " ",
+              _react2.default.createElement("br", null)
             )
           ),
           _react2.default.createElement(
-            "p",
-            null,
-            "Drink Name: ",
-            el.strDrink
-          ),
-          _react2.default.createElement(
-            "p",
-            null,
-            "Drink Category: ",
-            el.strAlcoholic
-          ),
-          _react2.default.createElement(
-            "p",
-            null,
-            "best Glass: ",
-            el.strGlass
-          ),
-          _react2.default.createElement(
-            "p",
-            null,
-            "Instructions: ",
-            el.strInstructions
+            "div",
+            { className: "classFinaleDrink" },
+            _react2.default.createElement("img", {
+              style: { height: "100%", paddingLeft: "30px" },
+              src: el.strDrinkThumb
+            })
           )
         );
       });
@@ -475,7 +490,6 @@ var FinalCoctail = function (_React$Component) {
       return _react2.default.createElement(
         "div",
         null,
-        "Your chosen drink:",
         _react2.default.createElement(
           "div",
           null,
@@ -546,9 +560,13 @@ document.addEventListener("DOMContentLoaded", function () {
       key: "render",
       value: function render() {
         return _react2.default.createElement(
-          "h1",
-          null,
-          "Strona g\u0142\xF3wna"
+          "div",
+          { className: "classPadding" },
+          _react2.default.createElement(
+            "h1",
+            null,
+            "Strona g\u0142\xF3wna"
+          )
         );
       }
     }]);
@@ -636,10 +654,10 @@ document.addEventListener("DOMContentLoaded", function () {
       value: function render() {
         return _react2.default.createElement(
           "div",
-          null,
+          { style: { position: "fixed", width: "100%" } },
           _react2.default.createElement(
             "h1",
-            null,
+            { style: { backgroundColor: "silver", textAlign: "center" } },
             "Make me a drink!"
           ),
           _react2.default.createElement(
@@ -886,7 +904,7 @@ var RandomComp = function (_React$Component) {
 
       return _react2.default.createElement(
         "div",
-        null,
+        { className: "classPadding" },
         _react2.default.createElement(
           "div",
           { onClick: this.handleClick },
