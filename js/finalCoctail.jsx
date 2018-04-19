@@ -39,15 +39,26 @@ class FinalCoctail extends React.Component {
         }
       }
       return (
-        <div style={{display: "flex", justifyContent: "space-between", backgroundColor: "black", padding: "30px"}}>
-          <div className="classFinaleDrink  drinkImage colorWhite" style={{padding:"30px"}}>
-            <h4>Drink recipe:</h4>
-            <p>
-              Ingredients: <ul style={{listStyle: "none"}}>{indAndQuan}</ul>
-            </p>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            backgroundColor: "black",
+            padding: "30px"
+          }}
+        >
+          <div
+            className="classFinaleDrink  drinkImage colorWhite fontAlegreya"
+            style={{ padding: "30px" }}
+          >
             <p>Drink Name: {el.strDrink}</p>
             <p>Drink Category: {el.strAlcoholic}</p>
-            <p>best Glass: {el.strGlass}</p>
+            <h4>Drink recipe:</h4>
+            <p>
+              Ingredients: <ul style={{ listStyle: "none" }}>{indAndQuan}</ul>
+            </p>
+
+            <p>Best Glass: {el.strGlass}</p>
             <p>Instructions: {el.strInstructions}</p>
           </div>
           <div className="classFinaleDrink">

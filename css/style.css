@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 .navList {
   list-style-type: none;
   margin: 0;
@@ -32,6 +33,7 @@
   background-image: url("../images/tloListy.jpg");
   background-size: cover;
   padding-top: 100px;
+  font-family: "Work Sans", sans-serif;
 }
 .alcoList ul li {
   float: left;
@@ -80,7 +82,8 @@
 }
 .drinkImage {
   background-image: url("../images/drinking.jpg");
-  background-size: contain;
+  background-size: cover;
+  height: 100%;
 }
 .gradient {
   background: rgb(243, 226, 199); /* Old browsers */
@@ -109,4 +112,16 @@
 }
 .colorWhite {
   color: white;
+}
+.fontRighteous {
+  font-family: "Righteous", cursive;
+}
+.fontRopa {
+  font-family: "Ropa Sans", sans-serif;
+}
+.fontWork {
+  font-family: "Work Sans", sans-serif;
+}
+.fontAlegreya {
+  font-family: "Alegreya Sans", sans-serif;
 }

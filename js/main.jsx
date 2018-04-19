@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
       return (
         <div style={{ position: "fixed", width: "100%" }}>
           <h1
+            className="fontRighteous"
             style={{
               backgroundColor: "#333333",
               textAlign: "center",
@@ -52,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
           >
             Make me a drink!
           </h1>
-          <ul className="navList ">
+          <ul className="navList fontRopa ">
             <li>
               <Link to="/">Home</Link>
             </li>

@@ -40,26 +40,32 @@ class CoctailList extends React.Component {
       return (
         <div
           style={{
-            width: "100px", height: "100px",
+            width: "100px",
+            height: "100px",
             backgroundImage: `url(${el.strDrinkThumb})`,
             backgroundSize: "contain",
             display: "flex",
             justifyContent: "center",
-            flexDirection: "column",
-
+            flexDirection: "column"
           }}
-          className="floatLeft imageMargin"
+          className="floatLeft imageMargin "
           data-id={el.idDrink}
           onClick={this.handleClickDrinkRecipe}
         >
-          <p style={{
-            padding: "0",
-            margin: "0",
-            display: "flex",
-            width: "auto",
-            justifyContent: "center",
-            // alignItems: "center",
-          }}><span className="spanCoctailList"style={{ textAlign: "center" }}>{el.strDrink}</span></p>
+          <p
+            style={{
+              padding: "0",
+              margin: "0",
+              display: "flex",
+              width: "auto",
+              justifyContent: "center"
+              // alignItems: "center",
+            }}
+          >
+            <span className="spanCoctailList " style={{ textAlign: "center" }}>
+              {el.strDrink}
+            </span>
+          </p>
           {/* <img className="width" src={el.strDrinkThumb} /> */}
         </div>
       );
