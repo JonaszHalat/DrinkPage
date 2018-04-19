@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 .navList {
-  color: white;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -17,7 +16,7 @@
 
 .navList li a {
   display: block;
-  color: black;
+  color: white;
   text-align: center;
   padding: 16px;
   text-decoration: none;
@@ -25,6 +24,9 @@
 
 .navList li a:hover {
   background-color: grey;
+  color: black;
+  cursor: pointer;
+  font-weight: bold;
 }
 .alcoList {
   background-image: url("../images/tloListy.jpg");
@@ -73,13 +75,12 @@
 .classFinaleDrink {
   display: inline-block;
   width: 48%;
-  height: 400px;
+  height: 300px;
   padding-left: 30px;
 }
 .drinkImage {
   background-image: url("../images/drinking.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-size: contain;
 }
 .gradient {
   background: rgb(243, 226, 199); /* Old browsers */
@@ -106,6 +107,6 @@
   ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3e2c7', endColorstr='#e9d4b3',GradientType=0 ); /* IE6-9 */
 }
-.colorWhite{
+.colorWhite {
   color: white;
 }
