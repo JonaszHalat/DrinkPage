@@ -43,15 +43,15 @@ class FinalCoctail extends React.Component {
           key={i}
           style={{
             display: "flex",
-            justifyContent: "space-between",
+
             backgroundColor: "black",
-            padding: "30px",
+            padding: "10px",
             width: "100%"
           }}
         >
           <div
             className="classFinaleDrink  drinkImage colorWhite fontAlegreya"
-            style={{ padding: "30px", minHeight: "300px", width: "80vw" }}
+            style={{ padding: "10px", minHeight: "300px", width: "80vw" }}
           >
             <p>
               Drink Name: {el.strDrink} <br />
