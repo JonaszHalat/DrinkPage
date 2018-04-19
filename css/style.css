@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 .navList {
+  color: white;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -72,12 +73,13 @@
 .classFinaleDrink {
   display: inline-block;
   width: 48%;
-  height: 300px;
+  height: 400px;
   padding-left: 30px;
 }
 .drinkImage {
   background-image: url("../images/drinking.jpg");
-  background-size: contain;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .gradient {
   background: rgb(243, 226, 199); /* Old browsers */
@@ -103,4 +105,7 @@
     rgba(233, 212, 179, 1) 100%
   ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3e2c7', endColorstr='#e9d4b3',GradientType=0 ); /* IE6-9 */
+}
+.colorWhite{
+  color: white;
 }

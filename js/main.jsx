@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
           >
             Make me a drink!
           </h1>
-          <ul className="navList">
+          <ul className="navList ">
             <li>
               <Link to="/">Home</Link>
             </li>

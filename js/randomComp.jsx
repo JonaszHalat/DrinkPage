@@ -58,8 +58,8 @@ class RandomComp extends React.Component {
         }
         console.log("el.strDrink" + el.strDrink);
         return (
-          <div style={{ marginTop: "30px" }}>
-            <div style={{ paddingTop: "-60px" }} className="classFinaleDrink">
+          <div style={{ marginTop: "30px", display:"flex", justifyContent:"space-between" }}>
+            <div style={{  padding: "20px"}} className="classFinaleDrink">
               <p>
                 Drink Name: {el.strDrink} <br />
                 Drink Category: {el.strAlcoholic}
@@ -67,14 +67,14 @@ class RandomComp extends React.Component {
               <br />
               <h4>Drink recipe:</h4>
               <p>
-                Indigiends: <ul>{indAndQuan}</ul> <br />
+                Indigiends: <ul style={{listStyle: "none"}}>{indAndQuan}</ul> <br />
                 Best Glass: {el.strGlass} <br />
                 Instructions: {el.strInstructions}
               </p>
-            </div>
+            </div >
             <div className="classFinaleDrink">
               <img
-                style={{ height: "100%", paddingLeft: "30px" }}
+                style={{ height: "100%", padding: "20px", borderRadius: "10%" }}
                 src={el.strDrinkThumb}
               />
             </div>
@@ -90,7 +90,7 @@ class RandomComp extends React.Component {
       <div className="classPadding gradient">
         <div>
           <h3
-            style={{ textAlign: "center", cursor: "pointer" }}
+            style={{ textAlign: "center", cursor: "pointer", height: "50px", padding:"10px"}}
             onClick={this.handleClick}
           >
             Create random drink

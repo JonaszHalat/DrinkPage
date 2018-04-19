@@ -436,24 +436,10 @@ var FinalCoctail = function (_React$Component) {
         }
         return _react2.default.createElement(
           "div",
-          { style: { marginBottom: "30px" } },
+          { style: { display: "flex", justifyContent: "space-between", backgroundColor: "black", padding: "30px" } },
           _react2.default.createElement(
             "div",
-            { className: "classFinaleDrink" },
-            _react2.default.createElement(
-              "p",
-              null,
-              "Drink Name: ",
-              el.strDrink,
-              " ",
-              _react2.default.createElement("br", null),
-              "Drink Category: ",
-              el.strAlcoholic,
-              " ",
-              _react2.default.createElement("br", null),
-              " ",
-              _react2.default.createElement("br", null)
-            ),
+            { className: "classFinaleDrink  drinkImage colorWhite", style: { padding: "30px" } },
             _react2.default.createElement(
               "h4",
               null,
@@ -463,17 +449,35 @@ var FinalCoctail = function (_React$Component) {
               "p",
               null,
               "Ingredients: ",
-              indAndQuan,
-              " ",
-              _react2.default.createElement("br", null),
-              "Best Glass: ",
-              el.strGlass,
-              " ",
-              _react2.default.createElement("br", null),
+              _react2.default.createElement(
+                "ul",
+                { style: { listStyle: "none" } },
+                indAndQuan
+              )
+            ),
+            _react2.default.createElement(
+              "p",
+              null,
+              "Drink Name: ",
+              el.strDrink
+            ),
+            _react2.default.createElement(
+              "p",
+              null,
+              "Drink Category: ",
+              el.strAlcoholic
+            ),
+            _react2.default.createElement(
+              "p",
+              null,
+              "best Glass: ",
+              el.strGlass
+            ),
+            _react2.default.createElement(
+              "p",
+              null,
               "Instructions: ",
-              el.strInstructions,
-              " ",
-              _react2.default.createElement("br", null)
+              el.strInstructions
             )
           ),
           _react2.default.createElement(
@@ -657,12 +661,18 @@ document.addEventListener("DOMContentLoaded", function () {
           { style: { position: "fixed", width: "100%" } },
           _react2.default.createElement(
             "h1",
-            { style: { backgroundColor: "silver", textAlign: "center" } },
+            {
+              style: {
+                backgroundColor: "#333333",
+                textAlign: "center",
+                color: "silver"
+              }
+            },
             "Make me a drink!"
           ),
           _react2.default.createElement(
             "ul",
-            { className: "navList" },
+            { className: "navList " },
             _react2.default.createElement(
               "li",
               null,
@@ -853,47 +863,53 @@ var RandomComp = function (_React$Component) {
           console.log("el.strDrink" + el.strDrink);
           return _react2.default.createElement(
             "div",
-            null,
+            { style: { marginTop: "30px", display: "flex", justifyContent: "space-between" } },
             _react2.default.createElement(
-              "h1",
-              null,
-              "Our Final Drink"
-            ),
-            _react2.default.createElement(
-              "p",
-              null,
-              "Indigiends: ",
+              "div",
+              { style: { padding: "20px" }, className: "classFinaleDrink" },
               _react2.default.createElement(
-                "ul",
+                "p",
                 null,
-                indAndQuan
+                "Drink Name: ",
+                el.strDrink,
+                " ",
+                _react2.default.createElement("br", null),
+                "Drink Category: ",
+                el.strAlcoholic
               ),
-              " "
+              " ",
+              _react2.default.createElement("br", null),
+              _react2.default.createElement(
+                "h4",
+                null,
+                "Drink recipe:"
+              ),
+              _react2.default.createElement(
+                "p",
+                null,
+                "Indigiends: ",
+                _react2.default.createElement(
+                  "ul",
+                  { style: { listStyle: "none" } },
+                  indAndQuan
+                ),
+                " ",
+                _react2.default.createElement("br", null),
+                "Best Glass: ",
+                el.strGlass,
+                " ",
+                _react2.default.createElement("br", null),
+                "Instructions: ",
+                el.strInstructions
+              )
             ),
-            _react2.default.createElement("img", { src: el.strDrinkThumb }),
             _react2.default.createElement(
-              "p",
-              null,
-              "Drink Name: ",
-              el.strDrink
-            ),
-            _react2.default.createElement(
-              "p",
-              null,
-              "Drink Category: ",
-              el.strAlcoholic
-            ),
-            _react2.default.createElement(
-              "p",
-              null,
-              "best Glass: ",
-              el.strGlass
-            ),
-            _react2.default.createElement(
-              "p",
-              null,
-              "Instructions: ",
-              el.strInstructions
+              "div",
+              { className: "classFinaleDrink" },
+              _react2.default.createElement("img", {
+                style: { height: "100%", padding: "20px", borderRadius: "10%" },
+                src: el.strDrinkThumb
+              })
             )
           );
         });
@@ -904,11 +920,18 @@ var RandomComp = function (_React$Component) {
 
       return _react2.default.createElement(
         "div",
-        { className: "classPadding" },
+        { className: "classPadding gradient" },
         _react2.default.createElement(
           "div",
-          { onClick: this.handleClick },
-          "RANDOM DRINK",
+          null,
+          _react2.default.createElement(
+            "h3",
+            {
+              style: { textAlign: "center", cursor: "pointer", height: "50px", padding: "10px" },
+              onClick: this.handleClick
+            },
+            "Create random drink"
+          ),
           _react2.default.createElement(
             "div",
             null,
