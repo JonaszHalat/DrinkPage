@@ -58,16 +58,26 @@ class RandomComp extends React.Component {
         }
         console.log("el.strDrink" + el.strDrink);
         return (
-          <div>
-            <h1>Our Final Drink</h1>
-            <p>
-              Indigiends: <ul>{indAndQuan}</ul>{" "}
-            </p>
-            <img src={el.strDrinkThumb} />
-            <p>Drink Name: {el.strDrink}</p>
-            <p>Drink Category: {el.strAlcoholic}</p>
-            <p>best Glass: {el.strGlass}</p>
-            <p>Instructions: {el.strInstructions}</p>
+          <div style={{ marginTop: "30px" }}>
+            <div style={{ paddingTop: "-60px" }} className="classFinaleDrink">
+              <p>
+                Drink Name: {el.strDrink} <br />
+                Drink Category: {el.strAlcoholic}
+              </p>{" "}
+              <br />
+              <h4>Drink recipe:</h4>
+              <p>
+                Indigiends: <ul>{indAndQuan}</ul> <br />
+                Best Glass: {el.strGlass} <br />
+                Instructions: {el.strInstructions}
+              </p>
+            </div>
+            <div className="classFinaleDrink">
+              <img
+                style={{ height: "100%", paddingLeft: "30px" }}
+                src={el.strDrinkThumb}
+              />
+            </div>
           </div>
         );
       });
@@ -77,9 +87,14 @@ class RandomComp extends React.Component {
     //   });
 
     return (
-      <div className="classPadding">
-        <div onClick={this.handleClick}>
-          RANDOM DRINK
+      <div className="classPadding gradient">
+        <div>
+          <h3
+            style={{ textAlign: "center", cursor: "pointer" }}
+            onClick={this.handleClick}
+          >
+            Create random drink
+          </h3>
           <div>{randomDrink}</div>
         </div>
       </div>

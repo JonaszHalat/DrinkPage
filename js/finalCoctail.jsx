@@ -39,20 +39,16 @@ class FinalCoctail extends React.Component {
         }
       }
       return (
-        <div style={{marginBottom: "30px"}}>
+        <div>
           <div className="classFinaleDrink">
-            <p>
-              Drink Name: {el.strDrink} <br />
-              Drink Category: {el.strAlcoholic} <br /> <br/>
-            </p>
             <h4>Drink recipe:</h4>
             <p>
-              {/* Your chosen drink: <br /> */}
-
-              Ingredients: {indAndQuan} <br />
-              Best Glass: {el.strGlass} <br />
-              Instructions: {el.strInstructions} <br />
+              Ingredients: <ul>{indAndQuan}</ul>
             </p>
+            <p>Drink Name: {el.strDrink}</p>
+            <p>Drink Category: {el.strAlcoholic}</p>
+            <p>best Glass: {el.strGlass}</p>
+            <p>Instructions: {el.strInstructions}</p>
           </div>
           <div className="classFinaleDrink">
             <img
@@ -65,8 +61,7 @@ class FinalCoctail extends React.Component {
     });
 
     return (
-      <div>
-
+      <div className="drinkImage">
         <div>{finalDrinkBlock}</div>
       </div>
     );

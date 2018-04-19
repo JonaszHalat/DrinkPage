@@ -75,3 +75,32 @@
   height: 300px;
   padding-left: 30px;
 }
+.drinkImage {
+  background-image: url("../images/drinking.jpg");
+  background-size: contain;
+}
+.gradient {
+  background: rgb(243, 226, 199); /* Old browsers */
+  background: -moz-linear-gradient(
+    top,
+    rgba(243, 226, 199, 1) 0%,
+    rgba(193, 158, 103, 1) 25%,
+    rgba(182, 141, 76, 1) 74%,
+    rgba(233, 212, 179, 1) 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    top,
+    rgba(243, 226, 199, 1) 0%,
+    rgba(193, 158, 103, 1) 25%,
+    rgba(182, 141, 76, 1) 74%,
+    rgba(233, 212, 179, 1) 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    rgba(243, 226, 199, 1) 0%,
+    rgba(193, 158, 103, 1) 25%,
+    rgba(182, 141, 76, 1) 74%,
+    rgba(233, 212, 179, 1) 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3e2c7', endColorstr='#e9d4b3',GradientType=0 ); /* IE6-9 */
+}

@@ -43,7 +43,15 @@ document.addEventListener("DOMContentLoaded", function() {
     render() {
       return (
         <div style={{ position: "fixed", width: "100%" }}>
-          <h1 style={{ backgroundColor: "silver", textAlign: "center" }}>Make me a drink!</h1>
+          <h1
+            style={{
+              backgroundColor: "#333333",
+              textAlign: "center",
+              color: "silver"
+            }}
+          >
+            Make me a drink!
+          </h1>
           <ul className="navList">
             <li>
               <Link to="/">Home</Link>
