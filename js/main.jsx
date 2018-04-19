@@ -10,7 +10,11 @@ document.addEventListener("DOMContentLoaded", function() {
   console.log("dom");
   class Home extends React.Component {
     render() {
-      return <h1>Strona główna</h1>;
+      return (
+        <div className="classPadding">
+          <h1>Strona główna</h1>
+        </div>
+      );
     }
   }
   class OneIngreadientDrinks extends React.Component {
@@ -38,8 +42,8 @@ document.addEventListener("DOMContentLoaded", function() {
   class Navigation extends React.Component {
     render() {
       return (
-        <div>
-          <h1>Make me a drink!</h1>
+        <div style={{ position: "fixed", width: "100%" }}>
+          <h1 style={{ backgroundColor: "silver" }}>Make me a drink!</h1>
           <ul className="navList">
             <li>
               <Link to="/">Home</Link>

@@ -60,8 +60,15 @@ class App extends React.Component {
         }
       })
       .then(data => {
+        data.drinks.sort((a, b) => {
+          a.strIngredient1.localeCompare(b.strIngredient1);
+        });
+
+        console.log(data.drinks);
         this.setState({
-          zmiennaState: data.drinks
+          zmiennaState: data.drinks.sort((a, b) =>
+            a.strIngredient1.localeCompare(b.strIngredient1)
+          )
         });
         // console.log(data);
         // console.log(data.drinks);

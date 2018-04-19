@@ -40,16 +40,22 @@ class FinalCoctail extends React.Component {
       }
       return (
         <div>
-          <h4>Drink recipe:</h4>
-
-          {/* <img src={el.strDrinkThumb} /> */}
-          <p>
-            Ingredients: <ul>{indAndQuan}</ul>
-          </p>
-          <p>Drink Name: {el.strDrink}</p>
-          <p>Drink Category: {el.strAlcoholic}</p>
-          <p>best Glass: {el.strGlass}</p>
-          <p>Instructions: {el.strInstructions}</p>
+          <div className="classFinaleDrink">
+            <h4>Drink recipe:</h4>
+            <p>
+              Ingredients: <ul>{indAndQuan}</ul>
+            </p>
+            <p>Drink Name: {el.strDrink}</p>
+            <p>Drink Category: {el.strAlcoholic}</p>
+            <p>best Glass: {el.strGlass}</p>
+            <p>Instructions: {el.strInstructions}</p>
+          </div>
+          <div className="classFinaleDrink">
+            <img
+              style={{ height: "100%", paddingLeft: "30px" }}
+              src={el.strDrinkThumb}
+            />
+          </div>
         </div>
       );
     });

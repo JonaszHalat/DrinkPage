@@ -77,7 +77,7 @@ class RandomComp extends React.Component {
     //   });
 
     return (
-      <div>
+      <div className="classPadding">
         <div onClick={this.handleClick}>
           RANDOM DRINK
           <div>{randomDrink}</div>

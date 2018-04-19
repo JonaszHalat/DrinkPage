@@ -28,14 +28,19 @@
 .alcoList {
   background-image: url("../images/tloListy.jpg");
   background-size: cover;
+  padding-top: 100px;
 }
 .alcoList ul li {
   float: left;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.4);
   margin: 5px;
   list-style-type: none;
   border-radius: 15%;
   padding: 5px;
+}
+.alcoList ul li:hover {
+  background-color: rgba(255, 255, 255, 1);
+  cursor: pointer;
 }
 .alcoList ul::after {
   content: "";
@@ -45,7 +50,6 @@
 .width {
   width: 100%;
   height: auto;
-  
 }
 .floatLeft {
   float: left;
@@ -53,12 +57,20 @@
 .imageMargin {
   margin: 10px;
 }
-.spanCoctailList{
+.spanCoctailList {
   color: white;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   opacity: 0;
 }
-.spanCoctailList:hover{
+.spanCoctailList:hover {
   opacity: 1;
   cursor: pointer;
+}
+.classPadding {
+  padding-top: 100px;
+}
+.classFinaleDrink {
+  display: inline-block;
+  width: 48%;
+  height: 300px;
 }
