@@ -85,11 +85,11 @@ class App extends React.Component {
           paddingTop: "86px"
         }}
       >
-        <div style={{ marginBottom: "20px" }} className="alcoList">
+        <div style={{ marginBottom: "20px" }} className="alcoList style2">
           <ul>{ingList}</ul>
         </div>
         <div
-          className="drinkList"
+          className="drinkList style2"
           style={{
             width: "70%",
             height: "90vh",

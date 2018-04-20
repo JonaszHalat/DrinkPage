@@ -61,8 +61,8 @@ class RandomComp extends React.Component {
           <div
             style={{
               marginTop: "30px",
-              display: "flex",
-              justifyContent: "space-between"
+              display: "flex"
+              //   justifyContent: "space-between"
             }}
           >
             <div
@@ -82,11 +82,16 @@ class RandomComp extends React.Component {
                 Instructions: {el.strInstructions}
               </p>
             </div>
-            <div className="classFinaleDrink">
+
+            <div
+              style={{ display: "flex", alignItems: "center" }}
+              className="classFinaleDrink"
+            >
               <img
                 style={{
                   height: "300px",
                   padding: "20px",
+                  position: "flex",
                   borderRadius: "10%"
                 }}
                 src={el.strDrinkThumb}
